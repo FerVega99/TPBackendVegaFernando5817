@@ -1,0 +1,46 @@
+<main>
+    <div class="container">
+        <div class="row">
+            <h2 class="text-center pt-3">Ticket</h2>
+            <div class="col-3"></div>
+            <div class="col-6 p-5">
+                <form >
+
+                    <div class="mb-3">
+                        <label for="espectador" class="form-label">Espectador</label>
+                        <select id="tipoEspectador" class="form-select" aria-label="Default select example" [(ngModel)]="ticket.espectador" name="espectador" required>
+                            <option selected disabled> </option>
+                            <option *ngFor="let e of espectadores" [ngValue]="e">{{e.nombre}}, {{e.apellido}}</option>
+                          </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="tipoEspectador" class="form-label">Tipo Espectador</label>
+                        <select id="tipoEspectador" class="form-select" aria-label="Default select example" [(ngModel)]="ticket.categoriaEspectador" (change)="onChange($event)" name="tipoEspectador" required>
+                            <option selected disabled> </option>
+                            <option value="l">Local</option>
+                            <option value="e">Extranjero</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="fechaCobro" class="form-label">Fecha</label>
+                        <input type="date" class="form-control" id="fechaCobro" placeholder="Fecha" [(ngModel)]="ticket.fechaCompra" name="fechaCobro" required>
+                    </div>
+                    <div class="mb-3">
+                        <span id="precioReal" class="form-text"> Precio Real: ${{precioReal}}</span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="precioCobrado" class="form-label">Precio Cobrado</label>
+                        <div *ngIf="precioReal !=0 && valorSeleccionado != ''">
+                            <label for="precioCobrado" class="form-label">${{precioCobrado}}</label>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn text-white" style="background-color: #4b004c;" (click)="agregarTicket()">Registrar</button>
+                    <button type="button" class="btn text-white" style="background-color: #4b004c; margin-left: 5px;" [routerLink]="['tickets-list']">Listado de Tickets</button>
+                </form>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>    
+</main>

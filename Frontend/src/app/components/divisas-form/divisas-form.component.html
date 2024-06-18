@@ -1,0 +1,188 @@
+  <main>
+    <div class="container p-5">
+      <div class="row">
+        <div class="col-md-8 d-none d-md-block col-xl-8">
+          <table class="table" style="border: 4px solid #4b004c;">
+            <thead>
+              <tr>
+                <th scope="col">
+                  <div class="text-center">
+                    <img id="bandera" src="assets/img/mon.png" class="rounded" alt="...">
+                    <h6 class="">$</h6>
+                  </div>
+                </th>
+                <th scope="col">
+                  <div class="text-center">
+                    <img id="bandera" src="https://cdn.icon-icons.com/icons2/107/PNG/512/argentina_18266.png" class="rounded" alt="...">
+                    <h6 class="">ARS</h6>
+                  </div>
+                </th>
+                <th scope="col">
+                  <div class="text-center">
+                    <img id="bandera" src="https://cdn.icon-icons.com/icons2/107/PNG/512/paraguay_flag_flags_18117.png" class="rounded" alt="...">
+                    <h6 class="">PYG</h6>
+                  </div>
+                </th>
+                <th scope="col">
+                  <div class="text-center">
+                    <img id="bandera" src="https://cdn.icon-icons.com/icons2/107/PNG/512/peru_flag_flags_18118.png" class="rounded" alt="...">
+                    <h6 class="">PEN</h6>
+                  </div>
+                </th>
+                <th scope="col">
+                  <div class="text-center">
+                    <img id="bandera" src="https://cdn.icon-icons.com/icons2/107/PNG/512/brazil_18295.png" class="rounded" alt="...">
+                    <h6 class="">BRL</h6>
+                  </div>
+                </th>
+                <th scope="col">
+                  <div class="text-center">
+                    <img id="bandera" src="https://cdn.icon-icons.com/icons2/107/PNG/512/chile_18293.png" class="rounded" alt="...">
+                    <h6 class="">CLP</h6>
+                  </div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="col">
+                  <div class="text-center">
+                    <img id="bandera" src="https://cdn.icon-icons.com/icons2/107/PNG/512/argentina_18266.png" class="rounded" alt="...">
+                    <h6 class="">ARS</h6>
+                  </div>
+                </th>
+                <td class="text-center">1,0000<br>1,0000</td>
+                <td class="text-center">8,50<br>0,12</td>
+                <td class="text-center">0,0042<br>235,91</td>
+                <td class="text-center">0,0059<br>169,65</td>
+                <td class="text-center">1,09<br>0,92</td>
+              </tr>
+              <tr>
+                <th scope="col">
+                  <div class="text-center">
+                    <img id="bandera" src="https://cdn.icon-icons.com/icons2/107/PNG/512/paraguay_flag_flags_18117.png" class="rounded" alt="...">
+                    <h6 class="">PYG</h6>
+                  </div>
+                </th>
+                <td class="text-center">0,12<br>8,50</td>
+                <td class="text-center">1,0000<br>1,0000</td>
+                <td class="text-center">0,00050<br>2002,35</td>
+                <td class="text-center">0,00069<br>1441,20</td>
+                <td class="text-center">0,13<br>7,79</td>
+              </tr>
+              <tr>
+                <th scope="col">
+                  <div class="text-center">
+                    <img id="bandera" src="https://cdn.icon-icons.com/icons2/107/PNG/512/peru_flag_flags_18118.png" class="rounded" alt="...">
+                    <h6 class="">PEN</h6>
+                  </div>
+                </th>
+                <td class="text-center">235,91<br>0,0042</td>
+                <td class="text-center">2002,35<br>0,00050</td>
+                <td class="text-center">1,0000<br>1,0000</td>
+                <td class="text-center">1,39<br>0,72</td>
+                <td class="text-center">257,78<br>0,0039</td>
+              </tr>
+              <tr>
+                <th scope="col">
+                  <div class="text-center">
+                    <img id="bandera" src="https://cdn.icon-icons.com/icons2/107/PNG/512/brazil_18295.png" class="rounded" alt="...">
+                    <h6 class="">BRL</h6>
+                  </div>
+                </th>
+                <td class="text-center">169,65<br>0,0059</td>
+                <td class="text-center">1441,20<br>0,00069</td>
+                <td class="text-center">0,72<br>1,39</td>
+                <td class="text-center">1,0000<br>1,0000</td>
+                <td class="text-center">185,09<br>0,0054</td>
+              </tr>
+              <tr>
+                <th scope="col">
+                  <div class="text-center">
+                    <img id="bandera" src="https://cdn.icon-icons.com/icons2/107/PNG/512/chile_18293.png" class="rounded" alt="...">
+                    <h6 class="">CLP</h6>
+                  </div>
+                </th>
+                <td class="text-center">0,92<br>1,09</td>
+                <td class="text-center">7,79<br>0,13</td>
+                <td class="text-center">0,0039<br>257,78</td>
+                <td class="text-center">0,0054<br>185,09</td>
+                <td class="text-center">1,0000<br>1,0000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-12 col-md-4 col-xl-4" style="background-color: #4b004c; border: 2px solid #4b004c;">
+          <form #divisasForm="ngForm" (ngSubmit)="divisasForm.valid && realizarConversion()">
+            <h2 class="text-white text-center mt-1">Conversor de Divisas</h2>
+            <button type="button" class="btn mb-3" style="background-color: #e0d1ed;" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="obtenerDivisas()"> 
+              Divisas Disponibles
+            </button>
+            <div class="form-floating mb-3">
+              <input type="number" class="form-control" id="floatingInput" placeholder="Monto" [(ngModel)]="transaccion.tasaConversion" name="monto" required min="0">
+              <label for="floatingInput">Monto</label>
+              <div *ngIf="divisasForm.submitted && divisasForm.controls['monto']?.invalid" class="text-danger">
+                <div *ngIf="divisasForm.controls['monto']?.errors?.['required']">Monto requerido.</div>
+                <div *ngIf="divisasForm.controls['monto']?.errors?.['min']">Monto debe ser un número positivo.</div>
+              </div>
+            </div>
+
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="Origen" [(ngModel)]="transaccion.monedaOrigen" name="origen" required minlength="3">
+                <label for="floatingInput">De: </label>
+                <div *ngIf="divisasForm.submitted && divisasForm.controls['origen']?.invalid" class="text-danger">
+                  <div *ngIf="divisasForm.controls['origen']?.errors?.['required']">Divisa requerida.</div>
+                  <div *ngIf="divisasForm.controls['origen']?.errors?.['minlength']">Divisa debe tener 3 caracteres.</div>
+                  <div *ngIf="divisasForm.controls['origen']?.errors?.['maxlength']">Divisa debe tener 3 caracteres.</div>
+                </div>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="Destino" [(ngModel)]="transaccion.monedaDestino" name="destino" required maxlength="3" minlength="3">
+                <label for="floatingInput">A: </label>
+                <div *ngIf="divisasForm.submitted && divisasForm.controls['destino']?.invalid" class="text-danger">
+                  <div *ngIf="divisasForm.controls['destino']?.errors?.['required']">Divisa requerida.</div>
+                  <div *ngIf="divisasForm.controls['destino']?.errors?.['minlength']">Divisa debe tener 3 caracteres.</div>
+                  <div *ngIf="divisasForm.controls['destino']?.errors?.['maxlength']">Divisa debe tener 3 caracteres.</div>
+                </div>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="Email" [(ngModel)]="transaccion.emailCliente" name="email" required pattern=".+@gmail\.com">
+                <label for="floatingInput">Email: </label>
+                <div *ngIf="divisasForm.submitted && divisasForm.controls['email']?.invalid" class="text-danger">
+                  <div *ngIf="divisasForm.controls['email']?.errors?.['required']">Email es requerido.</div>
+                  <div *ngIf="divisasForm.controls['email']?.errors?.['pattern']">Email no válido.</div>
+                </div>
+              </div>
+
+            <div class="form-group pt-3 text-white">
+              <button class="btn m-1" style="background-color: #e0d1ed;">Cotizar</button>
+              <label for="resultado">Resultado:  ${{resultado}}</label>
+            </div>
+          </form>
+          <button class="btn m-1" type="button" style="background-color: #e0d1ed;" [routerLink]="['divisas-list']">Lista de Transacciones</button>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" >
+        <div class="modal-content" style="background-color: #4b004c;">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Lista de Divisas</h1>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center text-white" *ngFor="let d of divisas">
+            {{d}}
+          </div>
+          <div class="modal-footer">
+            <button type="button" style="background-color: #e0d1ed;" class="btn" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  

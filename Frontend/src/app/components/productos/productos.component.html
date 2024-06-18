@@ -1,0 +1,28 @@
+<main>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12  col-md-12 col-xl-12">
+          <h3 class="text-center mt-3">Productos Destacados</h3> 
+        </div>
+      </div>
+      <div class="row" style="height: 50px;">
+        <div class="col-1" style="height: 50px; margin-top: 10px;">
+          <button class="btn text-white" type="button" style="background-color: #4b004c; border: 2px solid #4b004c;" [routerLink]="['productos-form']"><i class="bi bi-plus-square"></i></button>
+        </div>
+        
+      </div>
+    
+        <div class="row">
+          <div class="col-sm-12 col-md-6 col-xl-4" *ngFor="let p of productos">
+            <div id="carta" class="card text-center" style=" width: 18rem; background-color: #4b004c; margin: 50px; border-width: 3px; border-color: #4b004c">
+              <img src="{{p.imagen}}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title text-white">{{p.nombre}}</h5>
+                <p class="card-text text-white">{{p.descripcion}}</p>
+                <p class="card-text text-white">${{p.precio}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </main>

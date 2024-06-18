@@ -1,0 +1,96 @@
+<main>
+  <div class="container">
+    <h3 class="text-center text-dark p-4">Listado de Tickets</h3>
+    <div class="offset-5 col-2">
+      <select class="form-select mt-2 mb-3" id="inputGroupSelect04" aria-label="Example select with button addon"
+        (change)="onSelectChange($event)">
+        <option selected disabled>Filtro</option>
+        <option value="l">Local</option>
+        <option value="e">Extranjero</option>
+        <option value="t">Todos</option>
+      </select>
+    </div>
+    <div class="row">
+      <div class="offset-3 col-6">
+        <table class="table table-hover" style="border: 4px solid #4b004c;">
+          <thead>
+            <tr class="text-center">
+              <th scope="col">DNI</th>
+              <th scope="col">Tipo de Espectador</th>
+              <th scope="col">Fecha</th>
+              <th scope="col">Precio Final</th>
+              <th scope="col">Espectador</th>
+              <th scope="col">Opción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="text-center" *ngFor="let t of listadoTicket">
+              <th scope="row">{{t.espectador.dni}}</th>
+              <td>{{ t.categoriaEspectador === 'l' ? 'Local' : (t.categoriaEspectador === 'e' ? 'Extranjero' :
+                t.categoriaEspectador) }}</td>
+              <td>{{t.fechaCompra}}</td>
+              <td>${{t.precioTicket}}</td>
+              <td>{{t.espectador.apellido}} , {{t.espectador.nombre}}</td>
+              <td>
+                <button type="button" class="btn text-white bg-danger" (click)="eliminarTicket(t._id)"><i
+                    class="bi bi-trash"></i></button>
+                <button type="button" class="btn text-white bg-success" data-bs-toggle="modal"
+                  data-bs-target="#exampleModal" style="background-color: #e0d1ed;" (click)="asignarId(t._id)"><i
+                    class="bi bi-arrow-clockwise"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content" style="background-color: #4b004c;">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Modificar Ticket</h1>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="espectador" class="form-label text-white">Espectador</label>
+            <select id="tipoEspectador" class="form-select" aria-label="Default select example"
+              [(ngModel)]="ticketModificado.espectador" name="espectador" required>
+              <option selected disabled> </option>
+              <option *ngFor="let e of espectadores" [ngValue]="e">{{e.nombre}}, {{e.apellido}}</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="tipoEspectador" class="form-label text-white">Tipo Espectador</label>
+            <select id="tipoEspectador" class="form-select" aria-label="Default select example"
+              [(ngModel)]="ticketModificado.categoriaEspectador" (change)="onChange($event)" name="tipoEspectador" required>
+              <option selected disabled> </option>
+              <option value="l">Local</option>
+              <option value="e">Extranjero</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="fechaCobro" class="form-label text-white">Fecha</label>
+            <input type="date" class="form-control" id="fechaCobro" placeholder="Fecha" [(ngModel)]="ticketModificado.fechaCompra"
+              name="fechaCobro" required>
+          </div>
+          <div class="mb-3">
+            <span id="precioReal" class="form-text text-white"> Precio Real: ${{precioReal}}</span>
+          </div>
+          <div class="mb-3">
+            <label for="precioCobrado" class="form-label text-white">Precio Cobrado</label>
+            <div *ngIf="precioReal !=0 && valorSeleccionado != ''">
+              <label for="precioCobrado" class="form-label text-white">${{precioCobrado}}</label>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn" style="background-color: #e0d1ed;" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn" style="background-color: #e0d1ed;" (click)="modificarTicket()">Guardar Cambios</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

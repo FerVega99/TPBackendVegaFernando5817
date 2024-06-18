@@ -1,0 +1,68 @@
+<main>
+  <div class="container">
+    <div class="row">
+      <h2 class="text-center pt-3">Producto Nuevo</h2>
+      <div class="col-12 offset-md-3 col-md-6 offset-xl-3 col-xl-6 p-5">
+          <form #productoForm="ngForm" (ngSubmit)="productoForm.valid && agregarProducto()">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="nombre" placeholder="Nombre" [(ngModel)]="producto.nombre" name="nombre" required minlength="3">
+              <label for="nombre">Nombre</label>
+              <div *ngIf="productoForm.submitted && productoForm.controls['nombre']?.invalid" class="text-danger">
+                <div *ngIf="productoForm.controls['nombre']?.errors?.['required']">Nombre es requerido.</div>
+                <div *ngIf="productoForm.controls['nombre']?.errors?.['minlength']">Nombre debe tener al menos 3 caracteres.</div>
+              </div>
+            </div>
+          
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="descripcion" placeholder="Descripción" [(ngModel)]="producto.descripcion" name="descripcion" required>
+              <label for="descripcion">Descripción</label>
+              <div *ngIf="productoForm.submitted && productoForm.controls['descripcion']?.invalid" class="text-danger">
+                <div *ngIf="productoForm.controls['descripcion']?.errors?.['required']">Descripción es requerida.</div>
+                <div *ngIf="productoForm.controls['descripcion']?.errors?.['minlength']">Descripción debe tener al menos 1 caracteres.</div>
+              </div>
+            </div>
+          
+            <div class="form-floating mb-3">
+              <input type="number" class="form-control" id="precio" placeholder="Precio" [(ngModel)]="producto.precio" name="precio" required min="0">
+              <label for="precio">Precio</label>
+              <div *ngIf="productoForm.submitted && productoForm.controls['precio']?.invalid" class="text-danger">
+                <div *ngIf="productoForm.controls['precio']?.errors?.['required']">Precio es requerido.</div>
+                <div *ngIf="productoForm.controls['precio']?.errors?.['min']">Precio debe ser un número positivo.</div>
+              </div>
+            </div>
+          
+            <div class="form-floating mb-3">
+              <input type="number" class="form-control" id="stock" placeholder="Stock" [(ngModel)]="producto.stock" name="stock" required min="0">
+              <label for="stock">Stock</label>
+              <div *ngIf="productoForm.submitted && productoForm.controls['stock']?.invalid" class="text-danger">
+                <div *ngIf="productoForm.controls['stock']?.errors?.['required']">Stock es requerido.</div>
+                <div *ngIf="productoForm.controls['stock']?.errors?.['min']">Stock debe ser un número positivo.</div>
+              </div>
+            </div>
+          
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="imagen" placeholder="Imagen" [(ngModel)]="producto.imagen" name="imagen" required pattern="https?://.+">
+              <label for="imagen">URL Imagen</label>
+              <div *ngIf="productoForm.submitted && productoForm.controls['imagen']?.invalid" class="text-danger">
+                <div *ngIf="productoForm.controls['imagen']?.errors?.['required']">URL de la imagen es requerida.</div>
+                <div *ngIf="productoForm.controls['imagen']?.errors?.['pattern']">URL de la imagen debe ser una URL válida.</div>
+              </div>
+            </div>
+          
+            <div class="mb-3">
+              <label for="destacado" class="form-label">Producto de Primera Necesidad</label>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="destacado" [(ngModel)]="producto.destacado" name="destacado">
+                <label class="form-check-label" for="destacado"></label>
+              </div>
+            </div>
+          
+            <button type="submit" class="btn text-white m-1" style="background-color: #4b004c">Guardar</button>
+            <button type="button" class="btn text-white m-1" style="background-color: #4b004c"
+            [routerLink]="['productos-list']">Listado de Destacados</button>
+          </form>
+          
+      </div>
+    </div>
+  </div>
+</main>

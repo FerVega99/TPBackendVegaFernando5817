@@ -1,0 +1,13 @@
+main{
+    background-color: #e0d1ed;
+    min-height: 570px;
+    height: auto;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] { -moz-appearanc :textfield; }

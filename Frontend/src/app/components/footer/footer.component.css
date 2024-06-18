@@ -1,0 +1,16 @@
+ul{
+    padding: 0;
+}
+ul li{
+    display: inline-block;
+}
+ul li a{
+    text-decoration: none;
+    color: white;
+    padding: 1em;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+ul li a:hover{
+    transform: scale(1.5,1.5);
+}
